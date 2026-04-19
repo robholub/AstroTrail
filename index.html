@@ -7,13 +7,17 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#000000">
   
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
+  <!-- React & ReactDOM -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   
+  <!-- Babel for parsing JSX in the browser -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+  <!-- Register Service Worker for Offline Use -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -52,12 +56,10 @@
     ];
 
     function App() {
-      // 1. INSTANT PRO CHECK: Loads status instantly upon opening the app
       const [isPro, setIsPro] = useState(() => {
         return localStorage.getItem('astroProStatus') === 'true';
       });
 
-      // 2. INSTANT PROFILE LOAD: Loads saved gear instantly
       const [profiles, setProfiles] = useState(() => {
         const saved = localStorage.getItem('astroGearProfiles');
         return saved ? JSON.parse(saved) : [];
@@ -234,13 +236,22 @@
                 <div className={`p-5 rounded-2xl border shadow-sm ${theme.border} ${theme.cardBg}`}>
                    <label className="flex justify-between text-sm font-bold mb-5"><span className="flex items-center gap-2"><Compass size={18}/> Declination</span><span className="text-lg">{declination}°</span></label>
                    <input type="range" min="0" max="89" value={declination} onChange={(e) => setDeclination(parseInt(e.target.value))} className={`w-full mb-3 ${theme.slider}`} />
-                   <div className={`flex justify-between text-xs font-semibold ${theme.textMuted}`}><span>Equator (Fastest)</span><span>Pole (Slowest)</span></div>
+                   <div className={`flex justify-between text-xs font-semibold ${theme.textMuted}`}><span>Milky Way / Orion</span><span>Polaris / North Star</span></div>
                 </div>
                 
-                <div className={`p-4 rounded-xl flex items-start gap-3 text-sm border border-dashed ${theme.border} ${theme.cardBg}`}>
-                  <Info size={20} className="shrink-0 mt-0.5" />
-                  <p className={`font-medium ${theme.textMuted} leading-relaxed`}>Stars near the celestial equator (0°) move faster than stars near the poles (90°). Adjust the declination based on your framing for longer exposures.</p>
+                {/* --- NEW PRACTICAL DECLINATION EXPLANATION --- */}
+                <div className={`p-5 rounded-xl border border-dashed ${theme.border} ${theme.cardBg}`}>
+                  <div className="flex items-start gap-3 mb-3">
+                    <Info size={20} className="shrink-0 mt-0.5" />
+                    <p className={`font-bold text-sm tracking-wide`}>How to set Declination:</p>
+                  </div>
+                  <ul className={`text-sm font-medium ${theme.textMuted} space-y-3 pl-8 list-disc`}>
+                    <li><strong className={theme.text}>0° (Safe Default):</strong> Use this if you are shooting the Milky Way core, Orion, or pointing east/west. Stars move fastest here.</li>
+                    <li><strong className={theme.text}>45° (Mid-Sky):</strong> Use this if you are pointing halfway up towards the north or south, like shooting the Big Dipper.</li>
+                    <li><strong className={theme.text}>80°+ (The Poles):</strong> Use this if your camera is pointed directly at Polaris (the North Star). Stars barely move here, allowing for massive exposure times.</li>
+                  </ul>
                 </div>
+
               </div>
             </div>
           </div>
