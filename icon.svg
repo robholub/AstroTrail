@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Deep Space Black Background -->
+  <rect width="512" height="512" fill="#000000" rx="100" ry="100"/>
+  
+  <!-- Star Trails -->
+  <path d="M 100 280 A 156 156 0 0 1 412 280" fill="none" stroke="#550000" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 140 280 A 116 116 0 0 1 372 280" fill="none" stroke="#AA0000" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 180 280 A 76 76 0 0 1 332 280" fill="none" stroke="#FF0000" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- Camera Lens -->
+  <circle cx="256" cy="280" r="50" fill="none" stroke="#FF0000" stroke-width="24"/>
+  <circle cx="256" cy="280" r="20" fill="#FF0000"/>
+  
+  <!-- Stars -->
+  <circle cx="360" cy="140" r="14" fill="#FFFFFF"/>
+  <circle cx="160" cy="120" r="10" fill="#FFFFFF"/>
+  <circle cx="256" cy="80" r="18" fill="#FFFFFF"/>
+</svg>
