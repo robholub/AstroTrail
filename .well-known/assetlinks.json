@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "app.vercel.astro_trail.twa",
-        "sha256_cert_fingerprints": ["49:5A:32:F4:A9:C9:52:BF:F6:63:9C:7C:65:7C:0C:62:EA:BD:F1:95:BB:16:8B:35:05:79:47:C2:ED:DA:38:2F"]
+        "sha256_cert_fingerprints": ["B9:59:84:4D:97:8C:AF:1F:F5:50:AB:05:9E:00:46:EC:DB:43:E3:62:81:2F:4B:BD:4C:A0:93:6B:58:FD:5F:3C"]
       }
     }]
